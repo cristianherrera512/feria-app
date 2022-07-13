@@ -1,0 +1,65 @@
+<div class="flex flex-wrap align-items-center justify-content-center">
+  <div
+    class="flex align-items-center surface-border bg-teal-600 w-full border-round-md"
+  >
+    <p class="text-6xl w-12 text-center text-50 font-bold">FERIA APP</p>
+  </div>
+  <div class="flex align-items-center surface-border w-full border-round-md">
+    <p class="text-4xl w-12 text-center font-bold">
+      Una nueva forma de comprar en la Feria
+    </p>
+  </div>
+</div>
+<div class="grid flex flex-wrap align-items-center justify-content-center">
+  <div class="col-10">
+    <p-carousel
+      [value]="images"
+      styleClass="custom-carousel"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="3000"
+      [responsiveOptions]="responsiveOptions"
+      [style]="{'max-width':'2000px', 'margin-top':'2em'}"
+    >
+      <ng-template let-item pTemplate="item">
+        <div class="product-item">
+          <div class="product-item-content">
+            <div class="mb-3">
+              <img
+                [src]="item.previewImageSrc"
+                [alt]="item.title"
+                class="product-image"
+                style="max-height: auto;max-width: 100%" 
+              />
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+    <!-- <p-galleria
+      [value]="images"
+      [responsiveOptions]="responsiveOptions"
+      [numVisible]="5"
+      panelWidth="500"
+      panelHeight="313"
+    >
+      <ng-template pTemplate="item" let-item>
+        <div class="grid justify-content-center">
+          <div class="col-6">
+            <img [src]="item.previewImageSrc" style="max-width: 100%; max-height: 80%; display: block" />
+          </div>
+          
+        </div>
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid grid-nogutter justify-content-center">
+          <img
+            [src]="item.thumbnailImageSrc"
+            style="width: 30%; display: block"
+          />
+        </div>
+      </ng-template>
+    </p-galleria> -->
+  </div>
+</div>
