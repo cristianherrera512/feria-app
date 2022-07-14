@@ -1,1 +1,76 @@
-<p>login works!</p>
+<div class="grid flex align-items-center justify-content-center">
+  <div class="col-3">
+    <p-card>
+      <form (ngSubmit)="login()" autocomplete="off" [formGroup]="loginForm">
+        <div
+          class="flex justify-content-center bg-orange-500 border-round shadow-2"
+        >
+          <div
+            class="flex align-items-center justify-content-center w-4rem h-4rem m-2"
+          >
+            <h3 class="text-white">Ingresar</h3>
+          </div>
+        </div>
+        <div class="flex justify-content-center mt-4">
+          <div
+            class="flex align-items-center justify-content-center w-4rem h-4rem m-2"
+          >
+            <span class="p-float-label">
+              <input
+                id="float-input1"
+                type="email"
+                pInputText
+                autocomplete="off"
+                formControlName="email"
+                autofocus
+              />
+              <label for="float-input1">Correo Electrónico</label>
+              <small
+                id="float-input1-help"
+                class="block"
+                *ngIf="validField('email')"
+                >Ingrese un email válido</small
+              >
+            </span>
+          </div>
+        </div>
+        <div class="flex justify-content-center">
+          <div
+            class="flex align-items-center justify-content-center w-4rem h-4rem m-3"
+          >
+            <span class="p-float-label">
+              <input
+                id="float-input2"
+                type="password"
+                pInputText
+                autocomplete="off"
+                formControlName="password"
+              />
+              <label for="float-input2">Contraseña</label>
+              <small
+                id="float-input2-help"
+                class="block"
+                *ngIf="validField('password')"
+                >Ingrese una contraseña.</small
+              >
+            </span>
+          </div>
+        </div>
+        <div class="flex justify-content-center">
+          <div class="flex align-items-center justify-content-center m-2">
+            <button
+              pButton
+              type="submit"
+              (keypress.enter)="login()"
+              class="p-button-raised"
+              label="Ingresar"
+              icon="pi pi-arrow-circle-right"
+              iconPos="right"
+            ></button>
+          </div>
+        </div>
+      </form>
+    </p-card>
+  </div>
+  <p-toast position="bottom-center" key="myKey"></p-toast>
+</div>

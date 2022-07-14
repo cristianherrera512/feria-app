@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ErrorPageComponent } from './shared/error-page/error-page.component';
-import { LandingPageComponent } from './shared/landing-page/landing-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./shared/shared.module').then((m) => m.SharedModule)
-  },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'home',
-    loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule)
+    path: 'main',
+    loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule),
+    canLoad: [ AuthGuard ],
+    canActivate: [ AuthGuard ],
   },
+  {
+    path: '',
+    loadChildren: () => import('./shared/shared.module').then((m) => m.SharedModule)
+  }
   
 ];
 
